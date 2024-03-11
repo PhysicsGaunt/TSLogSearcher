@@ -60,11 +60,11 @@ def reverse_file_lines(input_file_path, output_file_path, p, searchString):
                 pbar.close()
             else:
                 for line in fin:
-                    if searchString in str(line):
+                    if searchString in str.lower(str(line)):
                         lines.append(line) # go through lines and add lines to list
                     pbar.update(1)
                 pbar.close()
         
         fout.writelines(reversed(lines)) # reverse list elements and adds them to new document
         
-reverse_file_lines("server.html", "lines.html", float(p), str(searchString))
+reverse_file_lines("server.html", "lines.html", float(p), str.lower(str(searchString)))
